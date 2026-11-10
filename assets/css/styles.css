@@ -197,3 +197,12 @@ blockquote { margin: 0; font-style: italic; color: var(--muted); border-left: 3p
   html { scroll-behavior: auto; }
   .btn { transition: none; }
 }
+
+/* Map link */
+.map-link {
+  display: flex; align-items: center; gap: 0.9rem; margin: 1.2rem 0 1.4rem;
+  padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: var(--radius); text-decoration: none; color: var(--ink); box-shadow: var(--shadow);
+}
+.map-link:hover { border-color: var(--green-dark); }
+.map-pin { font-size: 1.6rem; }

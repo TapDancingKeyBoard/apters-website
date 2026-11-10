@@ -211,3 +211,11 @@ blockquote { margin: 0; font-style: italic; color: var(--muted); border-left: 3p
 .page-content img { border-radius: var(--radius); }
 .wp-block-image img { border-radius: var(--radius); }
 .card img { border-radius: 10px; margin-bottom: 1rem; }
+/* Map link */
+.map-link {
+  display: flex; align-items: center; gap: 0.9rem; margin: 1.2rem 0 1.4rem;
+  padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--green);
+  border-radius: var(--radius); text-decoration: none; color: var(--ink); box-shadow: var(--shadow);
+}
+.map-link:hover { border-color: var(--green-dark); }
+.map-pin { font-size: 1.6rem; }

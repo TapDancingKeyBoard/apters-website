@@ -165,6 +165,7 @@ function apters_customize( $wp_customize ) {
 		'contact_phone' => array( 'Phone number', '+260 21 1251329' ),
 		'contact_hours' => array( 'Office hours', 'Monday to Friday, 8 a.m. to 3 p.m.' ),
 		'address'       => array( 'Address', 'University Teaching Hospital (UTH), Lusaka' ),
+		'map_url'       => array( 'Google Maps link', 'https://www.google.com/maps/place/APTERS+Zambia/@-15.4299174,28.3141652,224m/data=!3m1!1e3!4m6!3m5!1s0x19408deb4c5b8735:0x18ee2fd83a4ac53e!8m2!3d-15.4299063!4d28.3144136!16s%2Fg%2F11p11t4t6_?entry=ttu' ),
 		'bank_details'  => array( 'Bank details for donations', '' ),
 		'facebook_url'  => array( 'Facebook link', '' ),
 		'instagram_url' => array( 'Instagram link', '' ),
@@ -197,6 +198,7 @@ function apters_setting( $name, $default = '' ) {
 		'contact_phone' => '+260 21 1251329',
 		'contact_hours' => 'Monday to Friday, 8 a.m. to 3 p.m.',
 		'address'       => 'University Teaching Hospital (UTH), Lusaka',
+		'map_url'       => 'https://www.google.com/maps/place/APTERS+Zambia/@-15.4299174,28.3141652,224m/data=!3m1!1e3!4m6!3m5!1s0x19408deb4c5b8735:0x18ee2fd83a4ac53e!8m2!3d-15.4299063!4d28.3144136!16s%2Fg%2F11p11t4t6_?entry=ttu',
 	);
 	if ( '' === $default && isset( $defaults[ $name ] ) ) {
 		$default = $defaults[ $name ];
