@@ -9,6 +9,7 @@ $address = apters_setting( 'address' );
 $bank    = apters_setting( 'bank_details' );
 $fb      = apters_setting( 'facebook_url' );
 $ig      = apters_setting( 'instagram_url' );
+$map     = apters_setting( 'map_url' );
 
 $team = new WP_Query( array( 'post_type' => 'apters_team', 'posts_per_page' => -1, 'orderby' => array( 'menu_order' => 'ASC', 'title' => 'ASC' ) ) );
 $sponsors = new WP_Query( array( 'post_type' => 'apters_sponsor', 'posts_per_page' => -1, 'orderby' => array( 'menu_order' => 'ASC', 'title' => 'ASC' ) ) );
@@ -196,6 +197,12 @@ $events = apters_upcoming_events( 3 );
         <?php if ( $hours ) : ?><li><strong>Hours:</strong> <?php echo esc_html( $hours ); ?></li><?php endif; ?>
         <?php if ( $address ) : ?><li><strong>Location:</strong> <?php echo esc_html( $address ); ?></li><?php endif; ?>
       </ul>
+      <?php if ( $map ) : ?>
+      <a class="map-link" href="<?php echo esc_url( $map ); ?>" target="_blank" rel="noopener">
+        <span class="map-pin" aria-hidden="true">📍</span>
+        <span><strong>Find us on Google Maps</strong><br><?php echo esc_html( $address ); ?></span>
+      </a>
+      <?php endif; ?>
       <div class="social">
         <?php if ( $fb ) : ?><a href="<?php echo esc_url( $fb ); ?>" target="_blank" rel="noopener">Facebook</a><?php endif; ?>
         <?php if ( $ig ) : ?><a href="<?php echo esc_url( $ig ); ?>" target="_blank" rel="noopener">Instagram</a><?php endif; ?>
