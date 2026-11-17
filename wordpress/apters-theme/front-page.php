@@ -194,13 +194,13 @@ $events = apters_upcoming_events( 3 );
   ?>
   <div class="carousel" tabindex="0" aria-label="Partners and friends, scrolls automatically">
     <ul class="track">
-      <?php foreach ( $partner_list as $name ) : ?>
-        <li class="logo-tile"><span><?php echo esc_html( $name ); ?></span></li>
+      <?php foreach ( $partner_list as $name ) : $logo = apters_partner_logos()[ $name ] ?? ''; ?>
+        <li class="logo-tile"><?php if ( $logo ) : ?><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/partners/' . $logo . '.png' ); ?>" alt="<?php echo esc_attr( $name ); ?>" loading="lazy"><?php else : ?><span><?php echo esc_html( $name ); ?></span><?php endif; ?></li>
       <?php endforeach; ?>
     </ul>
     <ul class="track" aria-hidden="true">
-      <?php foreach ( $partner_list as $name ) : ?>
-        <li class="logo-tile"><span><?php echo esc_html( $name ); ?></span></li>
+      <?php foreach ( $partner_list as $name ) : $logo = apters_partner_logos()[ $name ] ?? ''; ?>
+        <li class="logo-tile"><?php if ( $logo ) : ?><img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/partners/' . $logo . '.png' ); ?>" alt="<?php echo esc_attr( $name ); ?>" loading="lazy"><?php else : ?><span><?php echo esc_html( $name ); ?></span><?php endif; ?></li>
       <?php endforeach; ?>
     </ul>
   </div>
