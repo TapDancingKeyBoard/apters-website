@@ -237,6 +237,28 @@ function apters_event_meta_line( $post_id ) {
 	return implode( ' · ', $parts );
 }
 
+/* Partner logos: name => file in assets/img/partners (names without a file show as text) */
+function apters_partner_logos() {
+	return array(
+	'AGS Capital' => 'ags-capital',
+	'American International School in Lusaka' => 'american-international-school',
+	'Eight Trail Hiking Club' => 'eight-trail-hiking-club',
+	'Standard Chartered Bank' => 'standard-chartered',
+	'Woolworths Kabulonga' => 'woolworths',
+	'Mercury Couriers' => 'mercury-couriers',
+	'Mocha Puddle' => 'mocha-puddle',
+	'Mumoso' => 'mumoso',
+	'Nomads Zambia' => 'nomads-zambia',
+	'Pick \'n\' Pay' => 'pick-n-pay',
+	'Pro Flight' => 'pro-flight',
+	'SES Bonn, Germany' => 'ses-bonn',
+	'Yalelo' => 'yalelo',
+	'Zambian Society Trust' => 'zambian-society-trust',
+	'Bread for the world' => 'bread-for-the-world',
+	'JICA' => 'jica',
+	);
+}
+
 /* ---------- Starter team content (added once, then managed by staff) ---------- */
 
 function apters_seed_team() {

@@ -241,3 +241,4 @@ blockquote { margin: 0; font-style: italic; color: var(--muted); border-left: 3p
   .partners .carousel { overflow-x: auto; }
   .partners .track[aria-hidden="true"] { display: none; }
 }
+.logo-tile img { max-height: 56px; max-width: 160px; width: auto; height: auto; }
