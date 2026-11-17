@@ -242,3 +242,16 @@ blockquote { margin: 0; font-style: italic; color: var(--muted); border-left: 3p
   .partners .track[aria-hidden="true"] { display: none; }
 }
 .logo-tile img { max-height: 56px; max-width: 160px; width: auto; height: auto; }
+
+/* Layout fixes: consistent image frames and footer logo */
+.split figure img { aspect-ratio: 4 / 3; }
+.footer-logo { height: 64px; padding: 6px 10px; }
+.form-note { color: var(--muted); font-weight: 400; font-size: 0.9rem; }
+@media (max-width: 600px) {
+  .people { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .person { padding: 1rem; }
+  .person h3 { font-size: 1.05rem; }
+  .person p { font-size: 0.9rem; }
+  .person img { margin-bottom: 0.6rem; }
+  .steps { grid-template-columns: 1fr; }
+}
