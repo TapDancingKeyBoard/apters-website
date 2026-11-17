@@ -168,6 +168,7 @@ function apters_customize( $wp_customize ) {
 		'address'       => array( 'Address', 'University Teaching Hospital (UTH), Lusaka' ),
 		'map_url'       => array( 'Google Maps link', 'https://www.google.com/maps/place/APTERS+Zambia/@-15.4299174,28.3141652,224m/data=!3m1!1e3!4m6!3m5!1s0x19408deb4c5b8735:0x18ee2fd83a4ac53e!8m2!3d-15.4299063!4d28.3144136!16s%2Fg%2F11p11t4t6_?entry=ttu' ),
 		'bank_details'  => array( 'Bank details for donations', '' ),
+		'partners'      => array( 'Partner names (one per line)', '' ),
 		'facebook_url'  => array( 'Facebook link', 'https://www.facebook.com/Apterszambia/' ),
 		'instagram_url' => array( 'Instagram link', 'https://www.instagram.com/apterszambia/' ),
 	);
@@ -175,12 +176,12 @@ function apters_customize( $wp_customize ) {
 	foreach ( $text_fields as $id => $field ) {
 		$wp_customize->add_setting( 'apters_' . $id, array(
 			'default'           => $field[1],
-			'sanitize_callback' => $id === 'bank_details' ? 'sanitize_textarea_field' : 'sanitize_text_field',
+			'sanitize_callback' => in_array( $id, array( 'bank_details', 'partners' ), true ) ? 'sanitize_textarea_field' : 'sanitize_text_field',
 		) );
 		$wp_customize->add_control( 'apters_' . $id, array(
 			'label'   => $field[0],
 			'section' => 'apters_settings',
-			'type'    => $id === 'bank_details' || $id === 'hero_text' ? 'textarea' : 'text',
+			'type'    => in_array( $id, array( 'bank_details', 'hero_text', 'partners' ), true ) ? 'textarea' : 'text',
 		) );
 	}
 
@@ -200,6 +201,7 @@ function apters_setting( $name, $default = '' ) {
 		'contact_hours' => 'Monday to Friday, 8 a.m. to 3 p.m.',
 		'address'       => 'University Teaching Hospital (UTH), Lusaka',
 		'bank_details'  => "Bank: Standard Chartered Bank, Lusaka main branch\nAccount name: Apters Support Group\nAccount number: 0150460075200\nBranch code: 060017\nSwift code: SCBLZMLX",
+		'partners'      => "AGS Capital\nAmerican International School in Lusaka\nAPTERS helping hands\nBread for the world\nBuleen\nCaledonian Society\nCiela Hotel\nCasa Bambino\nEight Trail Hiking Club\nFarm Gate\nFit Foot\nG. Fox\nHomenet\nInternational School of Lusaka\nInternational Women's Club of Lusaka\nInutu Siyana Good Will\nJapanese Embassy\nJICA\nJSC Footsteps\nPestalozzi School\nLazy J XCO MTB\nLusaka Indian Ladies Association LILA\nMaji Adventures\nMary's Bookshop\nMembers of J Lazy J Sanctuary\nMercury Couriers\nMocha Puddle\nMumoso\nNomads Zambia\nPhoenix\nPick 'n' Pay\nPro Flight\nSES Bonn, Germany\nStandard Chartered Bank\nTombe\nWoolworths Kabulonga\nYalelo\nZambian Society Trust",
 		'facebook_url'  => 'https://www.facebook.com/Apterszambia/',
 		'instagram_url' => 'https://www.instagram.com/apterszambia/',
 		'map_url'       => 'https://www.google.com/maps/place/APTERS+Zambia/@-15.4299174,28.3141652,224m/data=!3m1!1e3!4m6!3m5!1s0x19408deb4c5b8735:0x18ee2fd83a4ac53e!8m2!3d-15.4299063!4d28.3144136!16s%2Fg%2F11p11t4t6_?entry=ttu',

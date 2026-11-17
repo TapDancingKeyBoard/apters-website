@@ -184,7 +184,25 @@ $events = apters_upcoming_events( 3 );
   <div class="container">
     <p class="eyebrow">Partners &amp; friends</p>
     <p>We thank all our partners and friends for their interest and support.</p>
-    <ul class="partner-list"><li>AGS Capital</li><li>American International School in Lusaka</li><li>APTERS helping hands</li><li>Bread for the world</li><li>Buleen</li><li>Caledonian Society</li><li>Ciela Hotel</li><li>Casa Bambino</li><li>Eight Trail Hiking Club</li><li>Farm Gate</li><li>Fit Foot</li><li>G. Fox</li><li>Homenet</li><li>International School of Lusaka</li><li>International Women's Club of Lusaka</li><li>Inutu Siyana Good Will</li><li>Japanese Embassy</li><li>JICA</li><li>JSC Footsteps</li><li>Pestalozzi School</li><li>Lazy J XCO MTB</li><li>Lusaka Indian Ladies Association LILA</li><li>Maji Adventures</li><li>Mary's Bookshop</li><li>Members of J Lazy J Sanctuary</li><li>Mercury Couriers</li><li>Mocha Puddle</li><li>Mumoso</li><li>Nomads Zambia</li><li>Phoenix</li><li>Pick 'n' Pay</li><li>Pro Flight</li><li>SES Bonn, Germany</li><li>Standard Chartered Bank</li><li>Tombe</li><li>Woolworths Kabulonga</li><li>Yalelo</li><li>Zambian Society Trust</li></ul>
+  </div>
+  <?php
+  $partner_text = apters_setting( 'partners' );
+  $partner_list = array_filter( array_map( 'trim', preg_split( '/\r\n|\r|\n/', (string) $partner_text ) ) );
+  if ( empty( $partner_list ) ) {
+      $partner_list = array( 'AGS Capital' );
+  }
+  ?>
+  <div class="carousel" tabindex="0" aria-label="Partners and friends, scrolls automatically">
+    <ul class="track">
+      <?php foreach ( $partner_list as $name ) : ?>
+        <li class="logo-tile"><span><?php echo esc_html( $name ); ?></span></li>
+      <?php endforeach; ?>
+    </ul>
+    <ul class="track" aria-hidden="true">
+      <?php foreach ( $partner_list as $name ) : ?>
+        <li class="logo-tile"><span><?php echo esc_html( $name ); ?></span></li>
+      <?php endforeach; ?>
+    </ul>
   </div>
 </section>
 
