@@ -206,3 +206,15 @@ blockquote { margin: 0; font-style: italic; color: var(--muted); border-left: 3p
 }
 .map-link:hover { border-color: var(--green-dark); }
 .map-pin { font-size: 1.6rem; }
+
+/* Team portraits */
+.person img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 25%; border-radius: 10px; margin-bottom: 1rem; }
+.intro-dark { color: var(--muted); max-width: 680px; }
+
+/* Bank details */
+.bank { background: #fff; color: var(--ink); border-radius: var(--radius); padding: 1.6rem; margin-top: 2.5rem; max-width: 640px; box-shadow: var(--shadow); }
+.bank h3 { color: var(--blue-dark); }
+.bank dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.4rem 1.2rem; margin: 0; }
+.bank dt { font-weight: 700; }
+.bank dd { margin: 0; }
+.bank-address { font-size: 0.9rem; color: var(--muted); margin: 1rem 0 0; }
