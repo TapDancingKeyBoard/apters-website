@@ -51,11 +51,13 @@ $events = apters_upcoming_events( 3 );
       <p>Our core mission is to provide affordable mobility aids for children with neurological or physical disabilities, such as cerebral palsy, spina bifida or birth injuries, while offering paid employment and economic empowerment to adults with disabilities and mothers of disabled children.</p>
       <h3>Where we are</h3>
       <p>Our workshop is at the University Teaching Hospital (UTH) in Lusaka, with an additional craft presence around the Pa Mpofu craft market in Bauleni.</p>
+      <h3>Who we are</h3>
+      <p>Kenneth Habaalu, our Executive Director and founder, is recognised by BBC News as one of Africa's leading disability innovators.</p>
       <h3>What we use</h3>
       <p>Recycled paper, cardboard, flour and glue. The result is lightweight, biodegradable equipment.</p>
     </div>
     <figure>
-      <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/making.jpg' ); ?>" alt="A device being covered with layers of white paper in the APTERS workshop" loading="lazy">
+      <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/building.jpg' ); ?>" alt="The APTERS workshop building in Lusaka" loading="lazy">
     </figure>
   </div>
 </section>
@@ -96,7 +98,9 @@ $events = apters_upcoming_events( 3 );
     <div>
       <p class="eyebrow">Crafts &amp; shop</p>
       <h2>Shop handmade, support a child</h2>
-      <p>Our paper crafts are made by the same team that builds the mobility devices. Proceeds help subsidise equipment for families who cannot pay.</p>
+      <p>Most of our crafts are made from recycled paper and cardboard. We also make items from chitenge material and leather, and take custom orders. Proceeds help keep costs low for parents.</p>
+      <p>Find us at our shop in Pa Mpofu craft market in Bauleni, and at craft markets around Zambia, including ZADS.</p>
+      <p class="note"><strong>Shop hours:</strong> Tuesday to Sunday, 9:00 to 17:00</p>
       <a href="#contact" class="btn">Ask about crafts</a>
     </div>
   </div>
@@ -129,7 +133,7 @@ $events = apters_upcoming_events( 3 );
     <div class="people">
       <?php while ( $team->have_posts() ) : $team->the_post(); ?>
         <article class="person">
-          <?php if ( has_post_thumbnail() ) : the_post_thumbnail( 'apters-card', array( 'style' => 'border-radius:10px;margin-bottom:1rem' ) ); endif; ?>
+          <?php if ( has_post_thumbnail() ) : the_post_thumbnail( 'apters-square', array( 'loading' => 'lazy' ) ); endif; ?>
           <h3><?php the_title(); ?></h3>
           <?php $role = get_post_meta( get_the_ID(), '_apters_role', true ); if ( $role ) : ?><p class="role"><?php echo esc_html( $role ); ?></p><?php endif; ?>
           <div><?php the_content(); ?></div>
@@ -179,9 +183,8 @@ $events = apters_upcoming_events( 3 );
 <section class="section partners">
   <div class="container">
     <p class="eyebrow">Partners &amp; friends</p>
-    <ul class="partner-list">
-      <li>G. Fox</li><li>Mimosa</li><li>JICA</li><li>Japanese Embassy</li><li>SES</li><li>Nomads Zambia</li><li>Caledonian Society</li><li>Zambian Society Trust</li>
-    </ul>
+    <p>We thank all our partners and friends for their interest and support.</p>
+    <ul class="partner-list"><li>AGS Capital</li><li>American International School in Lusaka</li><li>APTERS helping hands</li><li>Bread for the world</li><li>Buleen</li><li>Caledonian Society</li><li>Ciela Hotel</li><li>Casa Bambino</li><li>Eight Trail Hiking Club</li><li>Farm Gate</li><li>Fit Foot</li><li>G. Fox</li><li>Homenet</li><li>International School of Lusaka</li><li>International Women's Club of Lusaka</li><li>Inutu Siyana Good Will</li><li>Japanese Embassy</li><li>JICA</li><li>JSC Footsteps</li><li>Pestalozzi School</li><li>Lazy J XCO MTB</li><li>Lusaka Indian Ladies Association LILA</li><li>Maji Adventures</li><li>Mary's Bookshop</li><li>Members of J Lazy J Sanctuary</li><li>Mercury Couriers</li><li>Mocha Puddle</li><li>Mumoso</li><li>Nomads Zambia</li><li>Phoenix</li><li>Pick 'n' Pay</li><li>Pro Flight</li><li>SES Bonn, Germany</li><li>Standard Chartered Bank</li><li>Tombe</li><li>Woolworths Kabulonga</li><li>Yalelo</li><li>Zambian Society Trust</li></ul>
   </div>
 </section>
 

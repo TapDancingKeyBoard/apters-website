@@ -19,6 +19,7 @@ function apters_setup() {
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption' ) );
 	add_image_size( 'apters-card', 900, 600, true );
+	add_image_size( 'apters-square', 600, 600, true );
 	register_nav_menus( array( 'primary' => __( 'Main menu', 'apters' ) ) );
 }
 add_action( 'after_setup_theme', 'apters_setup' );
@@ -198,6 +199,7 @@ function apters_setting( $name, $default = '' ) {
 		'contact_phone' => '+260 21 1251329',
 		'contact_hours' => 'Monday to Friday, 8 a.m. to 3 p.m.',
 		'address'       => 'University Teaching Hospital (UTH), Lusaka',
+		'bank_details'  => "Bank: Standard Chartered Bank, Lusaka main branch\nAccount name: Apters Support Group\nAccount number: 0150460075200\nBranch code: 060017\nSwift code: SCBLZMLX",
 		'facebook_url'  => 'https://www.facebook.com/Apterszambia/',
 		'instagram_url' => 'https://www.instagram.com/apterszambia/',
 		'map_url'       => 'https://www.google.com/maps/place/APTERS+Zambia/@-15.4299174,28.3141652,224m/data=!3m1!1e3!4m6!3m5!1s0x19408deb4c5b8735:0x18ee2fd83a4ac53e!8m2!3d-15.4299063!4d28.3144136!16s%2Fg%2F11p11t4t6_?entry=ttu',
@@ -232,3 +234,60 @@ function apters_event_meta_line( $post_id ) {
 	}
 	return implode( ' · ', $parts );
 }
+
+/* ---------- Starter team content (added once, then managed by staff) ---------- */
+
+function apters_seed_team() {
+	if ( get_option( 'apters_team_seeded' ) ) {
+		return;
+	}
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/media.php';
+
+	$team = array(
+		array( 'Kenneth Habaalu', 'Executive Director and founder', 'kenneth', 'Founded APTERS. Recognised by BBC News as one of Africa\'s leading disability innovators. Often teaches in schools about disability and inclusion.' ),
+		array( 'Karen Edwards-Jellis', 'Chairperson, APTERS Support Group', 'karen', 'A former occupational therapist. Gives advice on disabilities, helps with administration and banking, and organises fundraising and craft markets.' ),
+		array( 'Darius', 'Deputy Director', 'darius', 'Creates crafts and special devices, checks the quality and safety of every device before it is issued, and talks with parents about their contribution.' ),
+		array( 'Steve', 'Production coordinator and website', 'steve', 'Coordinates every step of production and supports Kenneth and Karen with administration. Looks after this website.' ),
+		array( 'Hope', 'Seamstress and cook', 'hope', 'Sews the straps for devices and makes textile crafts for the shop and craft markets. Also cooks for the team.' ),
+		array( 'Edith', 'Covering and painting', 'edith', 'Covers devices with paper and paints them. Makes crafts such as piggy banks and toy boxes.' ),
+		array( 'Levy', 'Pasting and painting', 'levy', 'Does the pasting and paints devices and crafts. Makes rugs and doormats that are sold at craft markets.' ),
+		array( 'Luka', 'Cutting and design', 'luka', 'The youngest of the team. Cuts the cardboard templates and sometimes designs new pieces.' ),
+		array( 'Patrick', 'Glue, pasting and covering', 'patrick', 'Prepares and cooks the glue, then pastes and covers items with white and brown paper.' ),
+		array( 'Ben', 'Covering and painting', 'ben', 'Covers items with white and brown paper and paints them.' ),
+		array( 'Twambo', 'Pasting', 'twambo', 'Puts the white and brown paper layers together on the devices.' ),
+		array( 'Thomas', 'Painting, transport and markets', 'thomas', 'Paints devices, helps with transport and sets up APTERS stands at craft markets. A musician and singer.' ),
+	);
+
+	$order = 1;
+	foreach ( $team as $member ) {
+		$post_id = wp_insert_post( array(
+			'post_type'    => 'apters_team',
+			'post_title'   => $member[0],
+			'post_content' => $member[3],
+			'post_status'  => 'publish',
+			'menu_order'   => $order++,
+		) );
+		if ( is_wp_error( $post_id ) || ! $post_id ) {
+			continue;
+		}
+		update_post_meta( $post_id, '_apters_role', $member[1] );
+
+		$src = get_template_directory() . '/assets/img/team/' . $member[2] . '.jpg';
+		if ( file_exists( $src ) ) {
+			$upload = wp_upload_bits( $member[2] . '.jpg', null, file_get_contents( $src ) );
+			if ( empty( $upload['error'] ) ) {
+				$attach_id = wp_insert_attachment( array(
+					'post_mime_type' => 'image/jpeg',
+					'post_title'     => $member[0],
+					'post_status'    => 'inherit',
+				), $upload['file'], $post_id );
+				wp_update_attachment_metadata( $attach_id, wp_generate_attachment_metadata( $attach_id, $upload['file'] ) );
+				set_post_thumbnail( $post_id, $attach_id );
+			}
+		}
+	}
+	update_option( 'apters_team_seeded', 1 );
+}
+add_action( 'init', 'apters_seed_team', 20 );
