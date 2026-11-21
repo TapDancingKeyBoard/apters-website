@@ -131,7 +131,8 @@ p { margin: 0 0 1rem; }
 
 /* Cards */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.4rem; margin-top: 2rem; }
-.card { background: #fff; border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow); border-top: 4px solid var(--green); }
+.card { position: relative; overflow: hidden; background: #fff; border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow); }
+.card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--green); }
 .card p:last-child { margin-bottom: 0; }
 .price .amount { font-size: 1.6rem; font-weight: 800; color: var(--green-dark); margin: 0.2rem 0 0.6rem; }
 .note { margin-top: 2rem; font-size: 0.98rem; }
@@ -207,10 +208,10 @@ blockquote { margin: 0; font-style: italic; color: var(--muted); border-left: 3p
 /* Map link */
 .map-link {
   display: flex; align-items: center; gap: 0.9rem; margin: 1.2rem 0 1.4rem;
-  padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--green);
+  padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line);
   border-radius: var(--radius); text-decoration: none; color: var(--ink); box-shadow: var(--shadow);
 }
-.map-link:hover { border-color: var(--green-dark); }
+.map-link:hover { border-color: var(--green); box-shadow: 0 8px 28px rgba(27,36,102,0.14); }
 .map-pin { font-size: 1.6rem; }
 
 /* Team portraits */
@@ -235,10 +236,10 @@ blockquote { margin: 0; font-style: italic; color: var(--muted); border-left: 3p
 /* Map link */
 .map-link {
   display: flex; align-items: center; gap: 0.9rem; margin: 1.2rem 0 1.4rem;
-  padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--green);
+  padding: 1rem 1.2rem; background: #fff; border: 1px solid var(--line);
   border-radius: var(--radius); text-decoration: none; color: var(--ink); box-shadow: var(--shadow);
 }
-.map-link:hover { border-color: var(--green-dark); }
+.map-link:hover { border-color: var(--green); box-shadow: 0 8px 28px rgba(27,36,102,0.14); }
 .map-pin { font-size: 1.6rem; }
 
 /* Team portraits */
