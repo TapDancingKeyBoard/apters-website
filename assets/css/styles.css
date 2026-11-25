@@ -195,7 +195,7 @@ figcaption { font-size: 0.92rem; color: var(--ink-soft); margin-top: 10px; }
 .site-footer { background: var(--blue-deep); color: #e9ecf8; padding: 34px 0; font-size: 0.95rem; }
 .foot { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
 .foot p { margin: 0; color: #e9ecf8; max-width: none; }
-.foot-logo { height: 52px; width: auto; background: var(--paper); padding: 6px 10px; border-radius: 6px; }
+.foot-logo { height: 52px; width: auto; background: var(--paper); padding: 14px 18px; border-radius: 6px; }
 
 /* Mobile */
 @media (max-width: 960px) {
