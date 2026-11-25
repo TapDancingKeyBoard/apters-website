@@ -128,7 +128,9 @@ figcaption { font-size: 0.92rem; color: var(--ink-soft); margin-top: 10px; }
 .sponsor h2 { margin-bottom: 0.6em; }
 .kraft { background: var(--kraft); border-radius: 4px; padding: 30px 30px 26px; color: var(--ink); }
 .kraft h3 { margin-bottom: 14px; }
-.kraft dl { display: grid; grid-template-columns: max-content 1fr; gap: 8px 18px; margin: 0 0 16px; }
+.kraft dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 18px; margin: 0 0 16px; }
+.kraft dd, .details dd { overflow-wrap: anywhere; }
+.wrap > * { min-width: 0; }
 .kraft dt { font-weight: 600; color: var(--blue-deep); }
 .kraft dd { margin: 0; }
 .kraft .small { color: var(--ink); }
@@ -201,7 +203,7 @@ figcaption { font-size: 0.92rem; color: var(--ink-soft); margin-top: 10px; }
   .stitch-steps { grid-template-columns: 1fr; gap: 26px; }
   .stitch-steps::before { display: none; }
   .stitch-steps li { padding-left: 0; }
-  .hero-grid, .about, .sponsor-grid, .events-grid, .shop-grid, .recognition, .contact-grid { grid-template-columns: 1fr; }
+  .hero-grid, .about, .sponsor-grid, .events-grid, .shop-grid, .recognition, .contact-grid { grid-template-columns: minmax(0, 1fr); }
   .help-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
@@ -212,7 +214,9 @@ figcaption { font-size: 0.92rem; color: var(--ink-soft); margin-top: 10px; }
   .labels a { flex-direction: column; gap: 6px; }
   .team-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
   .kraft, .form { padding: 22px; }
-  .details { grid-template-columns: 1fr; gap: 4px; }
+  .details { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .kraft dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .kraft dt { margin-top: 10px; }
   .details dt { margin-top: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
